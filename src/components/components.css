@@ -57,3 +57,59 @@ transform: scale(0.95);
     color: #1a1a1a;
   }
   
+
+  .link-bar {
+    width: 100%;
+    max-width: 420px;
+    align-items: center;    
+  
+    padding: 1.0em 1.2em;
+    margin: 10px;
+    font-size: 1em;
+    font-family: inherit;
+  
+    border-radius: 8px;
+    border: 1px solid;
+    background-color: #1a1a1a;
+    border-color: #334155;
+    color: #e5e7eb;
+
+    transition:
+      border-color 0.25s ease,
+      background-color 0.25s ease,
+      color 0.25s ease,
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
+  
+  .link-bar:focus {
+    outline: none;
+    border-color: #646cff;
+  }
+  
+  /* dark mode */
+  html.dark .link-bar {
+    border-color: #d1d5db;
+    background-color: white;
+    color: #111827;
+  }
+  
+
+  /* wrapper controls animation */
+.link-bar-wrapper {
+  overflow: hidden;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* hidden state */
+.link-bar-wrapper.hidden {
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+}
+
+/* visible state */
+.link-bar-wrapper.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

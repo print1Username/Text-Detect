@@ -30,14 +30,16 @@ function App() {
         Image with link <Link />
       </Button>
 
-      <div className={`link-bar-wrapper ${ showLinkBar ? 'visible' : 'hidden' }`}>
-        {showLinkBar && (
-          <LinkBar
-            value={link}
-            onChange={setLink}
-          />
-        )}
+      <div
+        className={`link-bar-wrapper ${
+          showLinkBar ? 'visible' : 'hidden'
+        }`}
+      >
+        <div className="link-bar-inner">
+          <LinkBar value={link} onChange={setLink} />
+        </div>
       </div>
+
 
       <ThemeToggle />
     </>

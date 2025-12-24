@@ -60,11 +60,12 @@ transform: scale(0.95);
 
   .link-bar {
     width: 100%;
-    max-width: 420px;
+    max-width: 400px;
     align-items: center;    
   
     padding: 1.0em 1.2em;
     margin: 10px;
+    margin-left: -15px;
     font-size: 1em;
     font-family: inherit;
   
@@ -81,35 +82,90 @@ transform: scale(0.95);
       opacity 0.2s ease,
       transform 0.2s ease;
   }
-  
-  .link-bar:focus {
-    outline: none;
-    border-color: #646cff;
-  }
-  
-  /* dark mode */
-  html.dark .link-bar {
-    border-color: #d1d5db;
-    background-color: white;
-    color: #111827;
-  }
-  
 
-  /* wrapper controls animation */
+/* container */
 .link-bar-wrapper {
-  overflow: hidden;
+  position: relative;
+  width: 100%;
+  max-width: 420px;
+}
+
+/* input */
+.link-bar-input {
+  width: 100%;
+  padding: 0.6em 2.5em 0.6em 0.9em; /* right space for icon */
+  font-size: 1em;
+  font-family: inherit;
+
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  background-color: white;
+  color: #111827;
+
+  transition:
+    border-color 0.25s ease,
+    background-color 0.25s ease,
+    color 0.25s ease;
+}
+
+.link-bar-input:focus {
+  outline: none;
+  border-color: #646cff;
+}
+
+/* paste button */
+.link-bar-paste {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: transparent;
+  border: none;
+  padding: 4px;
+  cursor: pointer;
+
+  color: #6b7280;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.link-bar-paste:hover {
+  color: #646cff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* dark mode */
+html.dark .link-bar-input {
+  background-color: #1e293b;
+  border-color: #334155;
+  color: #e5e7eb;
+}
+
+html.dark .link-bar-paste {
+  color: #9ca3af;
+}
+
+/* animation layer */
+.link-bar-wrapper {
   transition: opacity 0.25s ease, transform 0.25s ease;
 }
 
-/* hidden state */
 .link-bar-wrapper.hidden {
   opacity: 0;
   transform: translateY(-6px);
   pointer-events: none;
 }
 
-/* visible state */
 .link-bar-wrapper.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* content layer (no clipping) */
+.link-bar-inner {
+  overflow: visible;
 }

@@ -1,73 +1,37 @@
-# React + TypeScript + Vite
+# Text detected OCR Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a website that can detect fonts in images. Simply upload an image, and it will identify the fonts within it.
+\
+If you prefer not to upload images, this website also supports uploading via image URLs.
 
-Currently, two official plugins are available:
+## Introduction
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+When you enter this website, you'll see a simple homepage.
+\
+In the center of the homepage are two buttons: one for uploading images and the other for image links.
+\
+In the bottom-left corner of the website, you can switch between light and dark themes.
 
-## React Compiler
+## Vite + React
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This website's frontend utilizes Vite + React for development. React is a free, open-source framework well-suited for building websites.
+\
+Vite serves as the frontend content for the website, enabling its creation and deployment in React format.
 
-## Expanding the ESLint configuration
+## Docker
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Docker is a containerization platform that allows you to package an application, its runtime environment, and dependencies into a single container. This container can then be deployed and run identically on any machine with Docker installed.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Fly.io
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Fly.io is a “Docker-centric application deployment platform” that specializes in running your backend applications (Docker) directly on physical servers, close to your users.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## Tools
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+[The Build Tool for the Web](https://vite.dev/)
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+[The library for web and native user interfaces](https://react.dev/)
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+[A safer container ecosystem, for everyone](https://www.docker.com/)
+
+[Build fast. Run any code fearlessly. ](https://fly.io/)

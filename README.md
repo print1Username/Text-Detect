@@ -49,10 +49,6 @@ Vite serves as the frontend content for the website, enabling its creation and d
 
 Docker is a containerization platform that allows you to package an application, its runtime environment, and dependencies into a single container. This container can then be deployed and run identically on any machine with Docker installed.
 
-## Fly.io
-
-Fly.io is a “Docker-centric application deployment platform” that specializes in running your backend applications (Docker) directly on physical servers, close to your users.
-
 ## Tools
 
 [The Build Tool for the Web](https://vite.dev/)
@@ -60,5 +56,3 @@ Fly.io is a “Docker-centric application deployment platform” that specialize
 [The library for web and native user interfaces](https://react.dev/)
 
 [A safer container ecosystem, for everyone](https://www.docker.com/)
-
-[Build fast. Run any code fearlessly. ](https://fly.io/)

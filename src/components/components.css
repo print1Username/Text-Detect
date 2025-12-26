@@ -110,44 +110,14 @@ transform: scale(0.95);
 }
 
 .link-bar-input:focus {
-  outline: none;
   border-color: #646cff;
-}
-
-/* paste button */
-.link-bar-paste {
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  background: transparent;
-  border: none;
-  padding: 4px;
-  cursor: pointer;
-
-  color: #6b7280;
-  transition: color 0.2s ease, transform 0.2s ease;
-}
-
-.link-bar-paste:hover {
-  color: #646cff;
-  transform: translateY(-50%) scale(1.1);
 }
 
 /* dark mode */
 html.dark .link-bar-input {
-  background-color: #1e293b;
-  border-color: #334155;
+  background-color: #e5e7eb;
+  border-color: black;
   color: #e5e7eb;
-}
-
-html.dark .link-bar-paste {
-  color: #9ca3af;
 }
 
 /* animation layer */

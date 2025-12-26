@@ -1,6 +1,9 @@
 import type { InputHTMLAttributes } from 'react'
 
+import { useNavigate } from 'react-router-dom'
+
 import { Clipboard } from 'lucide-react';
+import { ArrowBigRight } from 'lucide-react';
 
 interface LinkBarProps extends InputHTMLAttributes<HTMLInputElement> {
   value?: string
@@ -14,6 +17,9 @@ export default function LinkBar({
   className,
   ...props
 }: LinkBarProps) {
+
+  const navigate = useNavigate()
+  const canNavigate = Boolean(value && value.trim() !== '')
 
   const handlePaste = async () => {
     try {
@@ -39,9 +45,18 @@ export default function LinkBar({
         type="button"
         onClick={handlePaste}
         className="link-bar-clipboard"
-        aria-label="Paste from clipboard"
-      >
-        <Clipboard />
+        aria-label="Paste from clipboard">
+        <Clipboard/>
+      </button>
+
+      <button
+        type="button"
+        onClick={() => {
+          if (!canNavigate) return
+          navigate('/detect', { state: { link: value } })
+        }}        
+        className={`link-bar-arrow ${!canNavigate ? 'disable' : ''}`}>
+          <ArrowBigRight/>
       </button>
     </div>
   )

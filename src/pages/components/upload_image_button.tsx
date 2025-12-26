@@ -2,8 +2,11 @@ import { useRef } from 'react'
 import { ImageUp } from 'lucide-react'
 import Button from './button'
 
+import { useNavigate } from 'react-router-dom'
+
 export default function UploadImageButton() {
   const inputRef = useRef<HTMLInputElement>(null)
+  const navigate = useNavigate()
 
   // open file dialog
   const handleClick = () => {
@@ -17,6 +20,14 @@ export default function UploadImageButton() {
 
     console.log('Selected file:', file)
     // do upload / preview here
+    const link = URL.createObjectURL(file)
+
+    navigate('/detect', {
+      state: {
+        link,
+        file,
+      },
+    })
   }
 
   return (

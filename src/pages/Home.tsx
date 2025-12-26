@@ -10,7 +10,7 @@ import Button from './components/button'
 import UploadImageButton from './components/upload_image_button';
 import LinkBar from './components/link_bar';
 
-function App() {
+export default function Home() {
   const [link, setLink] = useState('')
   const [showLinkBar, setShowLinkBar] = useState(false)
 
@@ -33,7 +33,7 @@ function App() {
 
       <div className={`link-bar-wrapper ${ showLinkBar ? 'visible' : 'hidden' }`}>
         <div className="link-bar-inner">
-          <LinkBar value={link} onChange={setLink} />
+          <LinkBar value={link} onChange={setLink}/>
         </div>
       </div>
 
@@ -42,5 +42,3 @@ function App() {
     </>
   )
 }
-
-export default App

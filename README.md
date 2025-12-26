@@ -12,6 +12,15 @@ In the center of the homepage are two buttons: one for uploading images and the 
 \
 In the bottom-left corner of the website, you can switch between light and dark themes.
 
+<img width="1920" height="912" alt="Screenshot 2025-12-26 at 16-59-17 Text Detecter" src="https://github.com/user-attachments/assets/c4a69a55-c31e-4114-9c15-1552087edc6d" />
+<img width="1920" height="912" alt="Screenshot 2025-12-26 at 16-59-37 Text Detecter" src="https://github.com/user-attachments/assets/2b5d418d-9e64-4734-a20f-74eeff066911" />
+
+After uploading an image or link, users can view the image and its content.
+\
+A back button is located in the top-left corner of the page, allowing users to return to the homepage.
+
+<img width="1920" height="912" alt="Screenshot 2025-12-26 at 17-00-08 Text Detecter" src="https://github.com/user-attachments/assets/d95800a8-a483-45d3-a5bc-eb10a2f82316" />
+
 ## Vite + React
 
 This website's frontend utilizes Vite + React for development. React is a free, open-source framework well-suited for building websites.

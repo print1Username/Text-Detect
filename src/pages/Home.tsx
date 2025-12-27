@@ -33,7 +33,7 @@ export default function Home() {
 
       <div className={`link-bar-wrapper ${ showLinkBar ? 'visible' : 'hidden' }`}>
         <div className="link-bar-inner">
-          <LinkBar value={link} onChange={setLink}/>
+          <LinkBar value={link} onValueChange={setLink}/>
         </div>
       </div>
 

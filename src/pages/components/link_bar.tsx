@@ -1,30 +1,27 @@
 import type { InputHTMLAttributes } from 'react'
-
 import { useNavigate } from 'react-router-dom'
+import { Clipboard, ArrowBigRight } from 'lucide-react'
 
-import { Clipboard } from 'lucide-react';
-import { ArrowBigRight } from 'lucide-react';
-
-interface LinkBarProps extends InputHTMLAttributes<HTMLInputElement> {
+interface LinkBarProps
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'onChange' | 'value'> {
   value?: string
-  onChange?: (value: string) => void
+  onValueChange?: (value: string) => void
 }
 
 export default function LinkBar({
   value,
-  onChange,
+  onValueChange,
   placeholder = 'Paste link here...',
   className,
   ...props
 }: LinkBarProps) {
-
   const navigate = useNavigate()
   const canNavigate = Boolean(value && value.trim() !== '')
 
   const handlePaste = async () => {
     try {
       const text = await navigator.clipboard.readText()
-      onChange?.(text)
+      onValueChange?.(text)
     } catch (err) {
       console.error('Failed to read clipboard', err)
     }
@@ -36,7 +33,7 @@ export default function LinkBar({
         type="url"
         value={value}
         placeholder={placeholder}
-        onChange={(e) => onChange?.(e.target.value)}
+        onChange={(e) => onValueChange?.(e.target.value)}
         className={`link-bar ${className ?? ''}`}
         {...props}
       />
@@ -45,8 +42,9 @@ export default function LinkBar({
         type="button"
         onClick={handlePaste}
         className="link-bar-clipboard"
-        aria-label="Paste from clipboard">
-        <Clipboard/>
+        aria-label="Paste from clipboard"
+      >
+        <Clipboard />
       </button>
 
       <button
@@ -54,9 +52,10 @@ export default function LinkBar({
         onClick={() => {
           if (!canNavigate) return
           navigate('/detect', { state: { link: value } })
-        }}        
-        className={`link-bar-arrow ${!canNavigate ? 'disable' : ''}`}>
-          <ArrowBigRight/>
+        }}
+        className={`link-bar-arrow ${!canNavigate ? 'disable' : ''}`}
+      >
+        <ArrowBigRight />
       </button>
     </div>
   )

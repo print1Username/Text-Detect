@@ -7,10 +7,13 @@ import io
 
 app = FastAPI()
 
+pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
+
 # Allow Vite frontend
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],  # dev stage
+    allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
